@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get '/messages/:id' => 'messages#show', :as => :message
   post '/messages' => 'messages#create'
 
+  get '/replies' => 'replies#index'
+  get '/replies/:id' => 'replies#show', :as => :reply
+  post '/replies' => 'replies#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
