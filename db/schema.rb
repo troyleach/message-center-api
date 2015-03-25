@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317131254) do
+ActiveRecord::Schema.define(version: 20150318151918) do
 
   create_table "messages", force: :cascade do |t|
     t.integer  "profile_id", limit: 4
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20150317131254) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "image",      limit: 255
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.integer  "message_id", limit: 4
+    t.text     "reply",      limit: 65535
+    t.integer  "profile_id", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end

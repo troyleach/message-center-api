@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
-    @message = Message.all
+    @messages = Message.all
+    @replies  = Reply.all
   end
 
   def show
@@ -8,7 +9,10 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create({:profile_id => params[:profile_id], :title => params[:title], :message => params[:message], :image => params[:image]})
+    @message = Message.create({:profile_id => params[:profile_id],
+                               :title => params[:title],
+                               :message => params[:message],
+                               :image => params[:image]})
     render 'show'
   end
 
